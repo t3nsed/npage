@@ -1,0 +1,13 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <mask id="chartMask">
+            <rect width="32" height="32" fill="white" />
+            <path d="M3,28 C12,26 20,14 26,11 L31,7 L28,13 L26,12 C20,15 12,27 3,29 Z" fill="black" />
+        </mask>
+    </defs>
+    <g mask="url(#chartMask)" fill="#BFA054">
+        <rect x="4" y="20" width="6" height="10" rx="1" />
+        <rect x="13" y="10" width="6" height="20" rx="1" />
+        <rect x="22" y="2" width="6" height="28" rx="1" />
+    </g>
+</svg>
