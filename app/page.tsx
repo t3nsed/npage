@@ -282,13 +282,10 @@ export default function CV() {
                   </div>
                   <ul className="mt-4 text-base text-gray-500 list-disc list-inside space-y-2">
                     <li>
-                      Building AgentOS: an agentic operating system for autonomous software development orchestration
+                      We're building AgentOS, an agentic operating system.
                     </li>
                     <li>
-                      Multi-agent coordination with specialized agents (Architect, Lead Engineer, Operator) executing tasks through a sequential pipeline with PR-merge gates
-                    </li>
-                    <li>
-                      Bun runtime, Next.js 15, gRPC, Neon Postgres with Drizzle ORM, deployed on GCP Cloud Run
+                      Release Q1 2026
                     </li>
                   </ul>
                 </div>
