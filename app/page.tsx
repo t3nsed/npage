@@ -31,8 +31,8 @@ export default function Home() {
             <hr className="border-gray-200 w-2/3" />
           </div>
           <p className="text-gray-500 max-w-xl mx-auto">
-            we're currently working on AgentOS, an agentic operating system.
-            we're running a research preview and would love to hear some
+            currently working on AgentOS, an agentic operating system.
+            we're running a research preview and would love to hear your
             feedback :)
           </p>
         </header>
