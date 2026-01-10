@@ -51,9 +51,9 @@ const MailIcon = ({ className }: { className?: string }) => (
 
 export function Footer() {
   return (
-    <footer className="bg-white mt-auto">
+    <footer className="fixed bottom-0 left-0 right-0 bg-transparent z-50">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           <Link
             href="https://github.com/t3nsed/npage"
             target="_blank"
