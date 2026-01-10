@@ -285,7 +285,7 @@ export default function CV() {
                       We're building AgentOS, an agentic operating system.
                     </li>
                     <li>
-                      Release Q1 2026
+                      Release planned for Q1 2026
                     </li>
                   </ul>
                 </div>
