@@ -54,9 +54,14 @@ export function Footer() {
     <footer className="bg-white mt-auto">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         <div className="flex items-center justify-between">
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Johann Hipp
-          </p>
+          <Link
+            href="https://github.com/t3nsed/npage"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-gray-900 transition-colors text-sm"
+          >
+            © 2026 Johann Hipp. No rights reserved.
+          </Link>
           <div className="flex items-center gap-6">
             <Link
               href="mailto:me@jhipp.dev"

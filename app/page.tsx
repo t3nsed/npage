@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
+
+import { SplitText } from "@/components/ui/split-text";
 import { useState } from "react";
 
 const RustCrab = () => {
@@ -121,9 +123,11 @@ export default function CV() {
           {/* Header Section */}
           <div className="flex gap-8 justify-between items-start">
             <div className="flex-1">
-              <h1 className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
-                <span className="text-blue-600">Johann Hipp</span>
-              </h1>
+              <SplitText
+                as="h1"
+                text="Johann Hipp"
+                className="text-4xl tracking-tight font-extrabold text-blue-600 sm:text-5xl md:text-6xl"
+              />
               <div className="flex items-center gap-4 mt-3">
                 <Link
                   href="mailto:me@jhipp.dev"
@@ -199,6 +203,9 @@ export default function CV() {
                   </svg>
                 </Link>
               </div>
+              <p className="text-gray-500 mt-3">
+                still trying to figure all of this out. love ultrarunning, trad climbing and alpine mountaineering. authenticity is all that matters.
+              </p>
             </div>
             <div className="flex-shrink-0 relative group">
               <Image
@@ -273,9 +280,17 @@ export default function CV() {
                       </span>
                     </div>
                   </div>
-                  <p className="mt-4 text-base text-gray-500">
-                    can't tell you too much yet
-                  </p>
+                  <ul className="mt-4 text-base text-gray-500 list-disc list-inside space-y-2">
+                    <li>
+                      Building AgentOS: an agentic operating system for autonomous software development orchestration
+                    </li>
+                    <li>
+                      Multi-agent coordination with specialized agents (Architect, Lead Engineer, Operator) executing tasks through a sequential pipeline with PR-merge gates
+                    </li>
+                    <li>
+                      Bun runtime, Next.js 15, gRPC, Neon Postgres with Drizzle ORM, deployed on GCP Cloud Run
+                    </li>
+                  </ul>
                 </div>
               </a>
             </div>
@@ -284,7 +299,7 @@ export default function CV() {
           {/* Career Section */}
           <section className="mt-16">
             <h2 className="mb-8 text-3xl font-extrabold text-gray-900">
-              Previously...
+              Previously
             </h2>
             <div className="flex flex-col gap-8">
               {/* Amplify */}
