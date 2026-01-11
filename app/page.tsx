@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { SplitText } from "@/components/ui/split-text";
 import CircularGallery from "@/components/CircularGallery";
 
@@ -13,8 +14,88 @@ const galleryItems = [
 ];
 
 export default function Home() {
+  const smileyRef = useRef<HTMLSpanElement>(null);
+  const [lineStyle, setLineStyle] = useState<{
+    left: number;
+    top: number;
+    endX: number;
+    endY: number;
+  } | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [showArrow, setShowArrow] = useState(false);
+
+  useEffect(() => {
+    const updateLine = () => {
+      const smiley = smileyRef.current;
+      const button = document.getElementById("agentos-button");
+
+      if (smiley && button) {
+        const smileyRect = smiley.getBoundingClientRect();
+        const buttonRect = button.getBoundingClientRect();
+
+        const startX = smileyRect.right + 4;
+        const startY = smileyRect.top + smileyRect.height / 2;
+        const endX = buttonRect.left + buttonRect.width / 2;
+        const endY = buttonRect.bottom + 8;
+
+        setLineStyle({
+          left: startX,
+          top: startY,
+          endX,
+          endY,
+        });
+      }
+    };
+
+    updateLine();
+    window.addEventListener("resize", updateLine);
+
+    const timer = setTimeout(() => setIsVisible(true), 500);
+    const arrowTimer = setTimeout(() => setShowArrow(true), 2000);
+
+    return () => {
+      window.removeEventListener("resize", updateLine);
+      clearTimeout(timer);
+      clearTimeout(arrowTimer);
+    };
+  }, []);
+
   return (
     <div className="h-screen overflow-hidden">
+      {lineStyle && (
+        <svg
+          className="fixed inset-0 pointer-events-none z-40"
+          style={{ width: "100%", height: "100%" }}
+        >
+          <defs>
+            <marker
+              id="arrowhead"
+              markerWidth="10"
+              markerHeight="7"
+              refX="9"
+              refY="3.5"
+              orient="auto"
+            >
+              <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280" />
+            </marker>
+          </defs>
+          <path
+            d={`M ${lineStyle.left} ${lineStyle.top}
+                Q ${lineStyle.left + (lineStyle.endX - lineStyle.left) * 0.6} ${lineStyle.top + 30},
+                  ${lineStyle.endX} ${lineStyle.endY}`}
+            stroke="#6b7280"
+            strokeWidth="1"
+            fill="none"
+            markerEnd={showArrow ? "url(#arrowhead)" : undefined}
+            pathLength="1"
+            strokeDasharray="1"
+            strokeDashoffset={isVisible ? 0 : 1}
+            style={{
+              transition: "stroke-dashoffset 1.5s ease-out",
+            }}
+          />
+        </svg>
+      )}
       <div className="px-4 pt-6">
         <header className="text-center">
           <SplitText
@@ -33,7 +114,7 @@ export default function Home() {
           <p className="text-gray-500 max-w-xl mx-auto">
             currently working on AgentOS, an agentic operating system.
             we're running a research preview and would love to hear your
-            feedback :)
+            feedback <span ref={smileyRef}>:)</span>
           </p>
         </header>
       </div>
