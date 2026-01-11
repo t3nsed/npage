@@ -119,7 +119,7 @@ export default function Home() {
         </header>
       </div>
 
-      <div style={{ height: "600px", position: "relative" }} className="mt-3">
+      <div className="mt-3 relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
         <CircularGallery items={galleryItems} bend={2} />
       </div>
     </div>
