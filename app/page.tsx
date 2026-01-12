@@ -8,9 +8,9 @@ const galleryItems = [
   { image: "/images/photo0.jpg", text: "" },
   { image: "/images/photo2.jpg", text: "" },
   { image: "/images/photo3.jpg", text: "" },
-  { image: "/images/photo6.jpg", text: "" },
   { image: "/images/L1100431.jpg", text: "" },
   { image: "/images/L1090728.jpg", text: "" },
+  { image: "/images/L1100236.jpg", text: "" },
 ];
 
 export default function Home() {
@@ -23,8 +23,13 @@ export default function Home() {
   } | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [showArrow, setShowArrow] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
     const updateLine = () => {
       const smiley = smileyRef.current;
       const button = document.getElementById("agentos-button");
@@ -47,14 +52,17 @@ export default function Home() {
       }
     };
 
+    checkMobile();
     updateLine();
     window.addEventListener("resize", updateLine);
+    window.addEventListener("resize", checkMobile);
 
     const timer = setTimeout(() => setIsVisible(true), 500);
     const arrowTimer = setTimeout(() => setShowArrow(true), 2000);
 
     return () => {
       window.removeEventListener("resize", updateLine);
+      window.removeEventListener("resize", checkMobile);
       clearTimeout(timer);
       clearTimeout(arrowTimer);
     };
@@ -62,7 +70,7 @@ export default function Home() {
 
   return (
     <div className="h-screen overflow-hidden">
-      {lineStyle && (
+      {lineStyle && !isMobile && (
         <svg
           className="fixed inset-0 pointer-events-none z-40"
           style={{ width: "100%", height: "100%" }}
