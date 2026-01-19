@@ -2,8 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Noto_Serif } from "next/font/google";
 import "./globals.css";
-import { Footer } from "./components/footer";
-import { Header } from "./components/header";
+import { LayoutWrapper } from "./components/layout-wrapper";
 
 export const notoSerif = Noto_Serif({
   subsets: ["latin"],
@@ -24,9 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${notoSerif.variable}`}>
-        <Header />
-        {children}
-        <Footer />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

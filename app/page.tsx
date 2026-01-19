@@ -104,7 +104,7 @@ export default function Home() {
           />
         </svg>
       )}
-      <div className="px-4 pt-6">
+      <div className="px-4 pt-16 md:pt-6">
         <header className="text-center">
           <SplitText
             as="h1"
