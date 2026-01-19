@@ -69,7 +69,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="min-h-screen md:h-screen md:overflow-hidden">
       {lineStyle && !isMobile && (
         <svg
           className="fixed inset-0 pointer-events-none z-40"
